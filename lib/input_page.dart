@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bmi_calculator/reuseable_card.dart';
 import 'package:bmi_calculator/icon_content.dart';
 import 'constants.dart';
+import 'round_icon_button.dart';
 
 enum Gender { male, female, none }
 
@@ -16,6 +17,8 @@ class _InputPageState extends State<InputPage> {
   Color femaleCardColor = kInactiveCardColor;
   Gender selectedGender = Gender.none;
   int height = 180;
+  int weight = 60;
+  int age = 20;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -111,21 +114,95 @@ class _InputPageState extends State<InputPage> {
               onPress: () {},
             ),
           ),
-          // Expanded(
-          //     child: Row(
-          //   children: <Widget>[
-          //     Expanded(
-          //       child: reuseablecard(
-          //         activeCardColor,
-          //       ),
-          //     ),
-          //     Expanded(
-          //       child: reuseablecard(
-          //         activeCardColor,
-          //       ),
-          //     ),
-          //   ],
-          // )),
+          Expanded(
+              child: Row(
+            children: <Widget>[
+              Expanded(
+                child: reuseablecard(
+                  colour: kInactiveCardColor,
+                  cardChild: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'WEIGHT',
+                        style: kLabelTextStyle,
+                      ),
+                      Text(
+                        weight.toString(),
+                        style: kNumberTextStyle,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPressed: () {
+                                setState(() {
+                                  weight--;
+                                });
+                              }),
+                          SizedBox(
+                            width: 10.0,
+                          ),
+                          RoundIconButton(
+                            icon: FontAwesomeIcons.plus,
+                            onPressed: () {
+                              setState(() {
+                                weight++;
+                              });
+                            },
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  onPress: () {},
+                ),
+              ),
+              Expanded(
+                child: reuseablecard(
+                  colour: kInactiveCardColor,
+                  cardChild: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'AGE',
+                        style: kLabelTextStyle,
+                      ),
+                      Text(
+                        age.toString(),
+                        style: kNumberTextStyle,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPressed: () {
+                                setState(() {
+                                  age--;
+                                });
+                              }),
+                          SizedBox(
+                            width: 10.0,
+                          ),
+                          RoundIconButton(
+                            icon: FontAwesomeIcons.plus,
+                            onPressed: () {
+                              setState(() {
+                                age++;
+                              });
+                            },
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  onPress: () {},
+                ),
+              ),
+            ],
+          )),
           Container(
             color: kBottomContainerColor,
             margin: EdgeInsets.only(top: 10.0),
