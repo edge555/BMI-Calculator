@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'reuseable_card.dart';
-import 'icon_content.dart';
+import '../components/reusable_card.dart';
+import '../components/icon_content.dart';
 import 'results_page.dart';
-import 'constants.dart';
-import 'round_icon_button.dart';
-import 'bottom_button.dart';
+import '../constants.dart';
+import '../components/round_icon_button.dart';
+import '../components/bottom_button.dart';
 
 enum Gender { male, female, none }
 
@@ -34,7 +34,7 @@ class _InputPageState extends State<InputPage> {
               child: Row(
             children: <Widget>[
               Expanded(
-                child: reuseablecard(
+                child: ReusableCard(
                   onPress: () {
                     setState(() {
                       selectedGender = Gender.male;
@@ -50,7 +50,7 @@ class _InputPageState extends State<InputPage> {
                 ),
               ),
               Expanded(
-                child: reuseablecard(
+                child: ReusableCard(
                   onPress: () {
                     setState(() {
                       selectedGender = Gender.female;
@@ -66,7 +66,7 @@ class _InputPageState extends State<InputPage> {
             ],
           )),
           Expanded(
-            child: reuseablecard(
+            child: ReusableCard(
               colour: kInactiveCardColor,
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -120,7 +120,7 @@ class _InputPageState extends State<InputPage> {
               child: Row(
             children: <Widget>[
               Expanded(
-                child: reuseablecard(
+                child: ReusableCard(
                   colour: kInactiveCardColor,
                   cardChild: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -162,7 +162,7 @@ class _InputPageState extends State<InputPage> {
                 ),
               ),
               Expanded(
-                child: reuseablecard(
+                child: ReusableCard(
                   colour: kInactiveCardColor,
                   cardChild: Column(
                     mainAxisAlignment: MainAxisAlignment.center,

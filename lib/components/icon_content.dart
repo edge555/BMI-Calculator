@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'constants.dart';
+import '../constants.dart';
 
 class iconContent extends StatelessWidget {
   iconContent({required this.gender,required this.genderIcon});

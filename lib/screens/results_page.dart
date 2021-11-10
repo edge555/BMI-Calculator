@@ -1,7 +1,7 @@
-import 'package:bmi_calculator/bottom_button.dart';
+import 'package:bmi_calculator/components/bottom_button.dart';
 import 'package:bmi_calculator/constants.dart';
-import 'package:bmi_calculator/reuseable_card.dart';
-import 'bottom_button.dart';
+import 'package:bmi_calculator/components/reusable_card.dart';
+import '../components/bottom_button.dart';
 import 'package:flutter/material.dart';
 
 class ResultsPage extends StatelessWidget {
@@ -29,7 +29,7 @@ class ResultsPage extends StatelessWidget {
             ),
             Expanded(
               flex: 5,
-              child: reuseablecard(
+              child: ReusableCard(
                 colour: kInactiveCardColor,
                 cardChild: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
