@@ -6,6 +6,7 @@ import 'results_page.dart';
 import '../constants.dart';
 import '../components/round_icon_button.dart';
 import '../components/bottom_button.dart';
+import 'package:bmi_calculator/calculation_part.dart';
 
 enum Gender { male, female, none }
 
@@ -125,7 +126,7 @@ class _InputPageState extends State<InputPage> {
                   cardChild: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text(
+                      const Text(
                         'WEIGHT',
                         style: kLabelTextStyle,
                       ),
@@ -140,10 +141,12 @@ class _InputPageState extends State<InputPage> {
                               icon: FontAwesomeIcons.minus,
                               onPressed: () {
                                 setState(() {
-                                  weight--;
+                                  if(weight>25) {
+                                    weight--;
+                                  }
                                 });
                               }),
-                          SizedBox(
+                          const SizedBox(
                             width: 10.0,
                           ),
                           RoundIconButton(
@@ -167,7 +170,7 @@ class _InputPageState extends State<InputPage> {
                   cardChild: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text(
+                      const Text(
                         'AGE',
                         style: kLabelTextStyle,
                       ),
@@ -182,10 +185,12 @@ class _InputPageState extends State<InputPage> {
                               icon: FontAwesomeIcons.minus,
                               onPressed: () {
                                 setState(() {
-                                  age--;
+                                  if(age>1) {
+                                    age--;
+                                  }
                                 });
                               }),
-                          SizedBox(
+                          const SizedBox(
                             width: 10.0,
                           ),
                           RoundIconButton(
@@ -208,17 +213,21 @@ class _InputPageState extends State<InputPage> {
           BottomButton(
             buttonTitle: 'CALCULATE',
             onTap: () {
+              CalculationPart calc =
+                  CalculationPart(height: height, weight: weight);
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) {
-                  return ResultsPage();
+                  return ResultsPage(
+                    bmiResult: calc.calculateBMI(),
+                    resultText: calc.getResult(),
+                  );
                 }),
               );
             },
-          )
+          ),
         ],
       ),
     );
   }
 }
-

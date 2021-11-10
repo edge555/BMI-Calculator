@@ -5,6 +5,9 @@ import '../components/bottom_button.dart';
 import 'package:flutter/material.dart';
 
 class ResultsPage extends StatelessWidget {
+  ResultsPage({required this.bmiResult,required this.resultText});
+  final String bmiResult;
+  final String resultText;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +22,7 @@ class ResultsPage extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.all(15.0),
 
-                child: Center(
+                child: const Center(
                   child: Text(
                     'Your Result',
                     style: kTitleTextStyle,
@@ -36,17 +39,12 @@ class ResultsPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      'Normal',
+                      resultText,
                       style: kResultTextStyle,
                     ),
                     Text(
-                      '18.3',
+                      bmiResult,
                       style: kBMITextStyle,
-                    ),
-                    Text(
-                      'Result is OK',
-                      textAlign: TextAlign.center,
-                      style: kBodyTextStyle,
                     ),
                   ],
                 ),
